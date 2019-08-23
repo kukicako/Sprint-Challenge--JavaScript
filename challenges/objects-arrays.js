@@ -19,7 +19,7 @@ const Dino1 = {
   weight: "7000kg",
   length: "12m",
   period: "Late Cretaceous",
-  roar :function(){
+  roar :()=>{
       return "RAWERSRARARWERSARARARRRR!"
   }
 }
@@ -145,7 +145,7 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 let animalNames = [];
-zooAnimals.forEach(function(currentValue){
+zooAnimals.forEach((currentValue) =>{
     animalNames.push(`Name: ${currentValue.animal_name}, Scientific: ${currentValue.scientific_name}`)
 });
 
@@ -157,7 +157,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 let lowCaseAnimalNames =
-zooAnimals.map(function(item){
+zooAnimals.map((item)=>{
 return item.animal_name.toLowerCase();
 
 });
@@ -169,7 +169,7 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 let lowPopulationAnimals = 
-zooAnimals.filter(function(pop){
+zooAnimals.filter((pop) =>{
 return pop.population < 5 ;
 
 });
@@ -184,7 +184,7 @@ The zoos need to know their total animal population across the United States. Fi
 
 */
 let populationTotal = 
-zooAnimals.reduce(function(accumulator, animalPop){
+zooAnimals.reduce((accumulator, animalPop) =>{
 console.log(`${accumulator}`);
 console.log(`${animalPop.population}`);
 return accumulator + animalPop.population;
