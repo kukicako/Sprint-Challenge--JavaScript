@@ -79,6 +79,7 @@ const graduates = [
 /* Request 1: Create a new array called universities that contains all the universities in the graduates array. This will be an array of strings.
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
+
 let universities = [];
 let UniversitySorted = [];
 for (let i = 0; i < graduates.length; i++){
@@ -88,19 +89,37 @@ for (let i = 0; i < graduates.length; i++){
 }
 UniversitySorted = universities.sort()
 
-console.log(universities);
+console.log(UniversitySorted);
+
+
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
 
 The resulting contact information strings should have a space between the first name and the email, like this: 
 "Josh josh@example.com"
 
 Log the result of your new array. */
-const contactInfo = [];
+let contactInfo = [];
+for (let i = 0; i < graduates.length; i++ ){
+  let contact = `${graduates[i].first_name} ${graduates[i].email}`
+  contactInfo.push(contact)
+};
+
 console.log(contactInfo);
 
+
+
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
+let unisWithUni = [];
+for (let i = 0; i <graduates.length; i++){
+  let uni = graduates[i].university
+  if (uni.includes("Uni")){
+  unisWithUni.push(graduates[i])
+}
+}
+
 console.log(unisWithUni);
+
+
 
 
 // ==== ADVANCED Array Methods ====
@@ -125,8 +144,12 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-const displayNames = [];
-console.log(displayNames);
+let animalNames = [];
+zooAnimals.forEach(function(currentValue){
+    animalNames.push(`Name: ${currentValue.animal_name}, Scientific: ${currentValue.scientific_name}`)
+});
+
+console.log(animalNames);
 
 /* Request 2: .map()
 
@@ -134,7 +157,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 let lowCaseAnimalNames =
-zooAnimals.map (function(item){
+zooAnimals.map(function(item){
 return item.animal_name.toLowerCase();
 
 });
@@ -147,7 +170,7 @@ The zoos are concerned about animals with a lower population count. Using filter
 */
 let lowPopulationAnimals = 
 zooAnimals.filter(function(pop){
-return pop.population < "5";
+return pop.population < 5 ;
 
 });
 
@@ -162,19 +185,12 @@ The zoos need to know their total animal population across the United States. Fi
 */
 let populationTotal = 
 zooAnimals.reduce(function(accumulator, animalPop){
-console.log('${accumulator}');
-console.log('${animalPop.population');
+console.log(`${accumulator}`);
+console.log(`${animalPop.population}`);
 return accumulator + animalPop.population;
 
 },0);
 console.log(populationTotal)
-
-
-
-
-
-console.log(populationTotal);
-
 
 /*
 
