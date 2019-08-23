@@ -79,7 +79,16 @@ const graduates = [
 /* Request 1: Create a new array called universities that contains all the universities in the graduates array. This will be an array of strings.
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
+let universities = [];
+let UniversitySorted = [];
+for (let i = 0; i < graduates.length; i++){
 
+    let university = graduates[i].university
+    universities.push(university)
+}
+UniversitySorted = universities.sort()
+
+console.log(universities);
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
 
 The resulting contact information strings should have a space between the first name and the email, like this: 
@@ -124,14 +133,23 @@ console.log(displayNames);
 The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
 
 */
+let lowCaseAnimalNames =
+zooAnimals.map (function(item){
+return item.animal_name.toLowerCase();
 
+});
+console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
 
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
+let lowPopulationAnimals = 
+zooAnimals.filter(function(pop){
+return pop.population < "5";
 
+});
 
 
 
@@ -142,6 +160,14 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
+let populationTotal = 
+zooAnimals.reduce(function(accumulator, animalPop){
+console.log('${accumulator}');
+console.log('${animalPop.population');
+return accumulator + animalPop.population;
+
+},0);
+console.log(populationTotal)
 
 
 
